@@ -1,12 +1,13 @@
 # Project Details
 This is just my experiment Video.js project that use Typescript, Webpack, and Testing setup (see Testing Stack section below).
 
-## Getting Started
+## Getting Started :rocket:
 Simply, follow steps below:
 
   1. `npm install`
   2. Run website in dev-server `npm run dev` (https://localhost:8080)
-    Useful when in development mode.
+
+    Useful when in development mode, because we can have hot-reload module replacement. It will make our productivity increased.
   3. Run test `npm test`
   4. To compile as Production built: `npm run prod`
 
@@ -27,7 +28,7 @@ Simply, follow steps below:
 ## What's Next?
 
 - [x] Create and Register custom extension/plugin
-- [x] Adobt more videojs extensions.
+- [x] Adobt more videojs extensions. (HLS, IMA extensions)
 - [x] Implement **Unit Testing**
 - [ ] Implement tslint for coding style standard.
 - [ ] Integrate with CI.
@@ -35,4 +36,4 @@ Simply, follow steps below:
 
 ## Have any questions?
 
-Please describe it in github Issue page, or just simply ping me on skype @kiddcode. :rocket:
+Please describe it in github Issue page, or just simply ping me on skype @kiddcode :v:
