@@ -18,15 +18,15 @@ describe('Ivs class', () => {
     elem.id = 'video1';
     ivs = new Ivs(elem);
 
-    this.spy_myConsole = sinon.spy(ivs, 'myConsole');
     this.spy_src = sinon.spy(ivs, 'src');
     this.spy_addRemoteTextTrack = sinon.spy(ivs, 'addRemoteTextTrack');
     this.spy_muted = sinon.spy(ivs, 'muted');
   });
 
-  // afterEach(() => {
-    
-  // })
+  it('All Plugins should correctly registered', () => {
+    expect(ivs.hasPlugin('ima')).to.be.true;
+    expect(ivs.hasPlugin('examplePlugin')).to.be.true;
+  });
 
   it('Test createPlayer method', () => {
     // 2. Act
@@ -43,7 +43,6 @@ describe('Ivs class', () => {
     const textTracks = player.remoteTextTracks();
     expect(player instanceof videojs.getComponent('player')).to.equal(true);
     expect(player.elVideo instanceof HTMLElement).to.be.true;
-    expect(this.spy_myConsole.calledOnce).to.be.true; // remove later
     expect(this.spy_src.calledOnce).to.be.true;
     expect(this.spy_addRemoteTextTrack.calledOnce).to.be.true;
     expect(this.spy_muted.calledOnce).to.be.true;

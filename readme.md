@@ -26,7 +26,9 @@ Simply, follow steps below:
 
 ## What's Next?
 
-- [ ] Adobt more videojs extensions.
+- [x] Create and Register sustom extension/plugin
+- [x] Adobt more videojs extensions.
+- [x] Implement *Unit Testing*
 - [ ] Implement tslint for coding style standard.
 - [ ] Integrate with CI.
 - [ ] ...

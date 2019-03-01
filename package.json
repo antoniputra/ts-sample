@@ -44,6 +44,8 @@
     "typescript": "^3.3.3333",
     "video.js": "^7.4.1",
     "videojs-contrib-ads": "^6.6.1",
+    "videojs-contrib-quality-levels": "^2.0.9",
+    "videojs-hls-quality-selector": "^1.0.5",
     "videojs-ima": "^1.5.2",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",

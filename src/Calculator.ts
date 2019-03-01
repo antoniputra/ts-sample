@@ -12,7 +12,6 @@ export default class Calculator {
 
   fillElem(text: string) {
     this.elem.innerHTML = text;
-    // console.log('prend', this.elem);
     // return this.elem.innerHTML;
   }
 };

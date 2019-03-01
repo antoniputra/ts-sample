@@ -1,16 +1,7 @@
-import Calculator from "./Calculator";
 import Ivs from "./Ivs";
 import "video.js/dist/video-js.css";
 import "videojs-contrib-ads/dist/videojs.ads.css";
-
-
-// Calculator stuff
-const elem = document.createElement("div");
-elem.id = 'video1';
-const calc = new Calculator(elem);
-calc.fillElem('Hi Mas Antoni prend');
-document.querySelector('body').appendChild(calc.elem);
-
+import "videojs-hls-quality-selector/dist/videojs-hls-quality-selector.css";
 
 // Videojs stuff
 const elVideo = document.getElementById('video1');
