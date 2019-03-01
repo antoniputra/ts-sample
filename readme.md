@@ -26,9 +26,13 @@ Simply, follow steps below:
 
 ## What's Next?
 
-- [x] Create and Register sustom extension/plugin
+- [x] Create and Register custom extension/plugin
 - [x] Adobt more videojs extensions.
-- [x] Implement *Unit Testing*
+- [x] Implement **Unit Testing**
 - [ ] Implement tslint for coding style standard.
 - [ ] Integrate with CI.
-- [ ] ...
+- [ ] *I love to hear from you...*
+
+## Have any questions?
+
+Please describe it in github Issue page, or just simply ping me on skype @kiddcode. :rocket:

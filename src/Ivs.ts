@@ -3,7 +3,7 @@ import VjsIma from "./VjsIma";
 import "videojs-contrib-quality-levels";
 
 // [Info] All Plugin should successfully registered at this point (has be done in ./src/video.ts)
-console.log('Hi, List of registered Plugins: ', video.getPlugins());
+// console.log('Hi, List of registered Plugins: ', video.getPlugins());
 
 export default class Ivs extends video.getComponent("player") {
   /**
@@ -33,20 +33,6 @@ export default class Ivs extends video.getComponent("player") {
   constructor(elem: HTMLElement) {
     super(elem as any);
     this.elVideo = elem;
-
-    // Configure Hls Plugin
-    this.on("loadstart", function (e) {
-
-      console.log('hello prend');
-      this.hlsQualitySelector();
-      this.qualityLevels = this.qualityLevels();
-      this.qualityLevels.on("addqualitylevel", function (event) {
-        let qL = event.qualityLevel;
-
-        qL.enabled = true;
-        console.log('Hi', qL.height);
-      });
-    });
   }
 
   createPlayer(srcVideo: string, vttUrl: string, adTagUrl: string): any {
@@ -65,6 +51,19 @@ export default class Ivs extends video.getComponent("player") {
     player.ima = new VjsIma(player, {
       id: this.elVideo,
       adTagUrl: adTagUrl,
+    });
+
+    // Configure Hls Plugin
+    this.on("loadstart", function (e) {
+      this.hlsQualitySelector();
+      let qualityLevels = this.qualityLevels();
+      qualityLevels.on("addqualitylevel", function (event) {
+        let qualityLevel = event.qualityLevel;
+
+        qualityLevel.enabled = true;
+        console.log(qualityLevel.height);
+      });
+
     });
 
     // [Trigger the Custom Plugin]

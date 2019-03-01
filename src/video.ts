@@ -6,7 +6,7 @@ import hlsQualitySelector from "videojs-hls-quality-selector";
 let video: typeof videojs;
 video = videojs;
 
-// [old issue] use this line when there are issue about import videojs
+// [Info] Use this line to conditionally import
 //
 // if(process.env.NODE_ENV === 'testing') {
 //   // video = require('video.js').default; // it works too

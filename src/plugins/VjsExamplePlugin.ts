@@ -4,7 +4,7 @@ const Plugin = video.getPlugin('plugin');
 
 export default class VjsExamplePlugin extends Plugin {
 
-  constructor(player) {
+  constructor(player: any) {
     super(player);
 
     player.on('playing', function () {
