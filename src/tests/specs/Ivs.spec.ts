@@ -5,21 +5,13 @@ import videojs from 'video.js';
 
 chai.use(require('chai-dom'));
 // let should = chai.should();
-let assert = chai.assert;
+// let assert = chai.assert;
 let expect = chai.expect;
 
 
 describe('Ivs class', () => {
 
   let ivs: Ivs;
-
-  // setup(() => {
-  //   // sinon.spy(videojs, 'getPlayer');
-  // });
-
-  // teardown(() => {
-  //   // videojs.getPlayer.restore();
-  // })
 
   beforeEach(() => {
     const elem = document.createElement("video");
@@ -37,17 +29,28 @@ describe('Ivs class', () => {
   // })
 
   it('Test createPlayer method', () => {
-    const srcVideo = 'https://lamberta.github.io/html5-animation/examples/ch04/assets/movieclip.webm';
-    ivs.createPlayer(
-      srcVideo,
-      'https://assets-ivstream.ivideosmart.com/3000348/211872/3000348-211872.en.vtt',
-      'http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=xml_vmap1&unviewed_position_start=1&cust_params=sample_ar%3Dpremidpostpod%26deployment%3Dgmf-js&cmsid=496&vid=short_onecue&correlator='
+    // 2. Act
+    const videoUrl = 'https://lamberta.github.io/html5-animation/examples/ch04/assets/movieclip.webm';
+    const videoSub = 'https://assets-ivstream.ivideosmart.com/3000348/211872/3000348-211872.en.vtt';
+    const videoAd = 'http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=xml_vmap1&unviewed_position_start=1&cust_params=sample_ar%3Dpremidpostpod%26deployment%3Dgmf-js&cmsid=496&vid=short_onecue&correlator=';
+    const player = ivs.createPlayer(
+      videoUrl,
+      videoSub,
+      videoAd
     );
-    expect(this.spy_muted.getCall(0).args.shift()).to.equal(false);
+      
+    // 3. Assert
+    const textTracks = player.remoteTextTracks();
+    expect(player instanceof videojs.getComponent('player')).to.equal(true);
+    expect(player.elVideo instanceof HTMLElement).to.be.true;
+    expect(this.spy_myConsole.calledOnce).to.be.true; // remove later
+    expect(this.spy_src.calledOnce).to.be.true;
+    expect(this.spy_addRemoteTextTrack.calledOnce).to.be.true;
+    expect(this.spy_muted.calledOnce).to.be.true;
 
-    assert(this.spy_myConsole.calledOnce);
-    assert(this.spy_src.calledOnce);
-    assert(this.spy_addRemoteTextTrack.calledOnce);
-    assert(this.spy_muted.calledOnce);
+    expect(player.src()).to.equal(videoUrl);
+    expect(textTracks[0].src).to.equal(videoSub);
+    expect(textTracks[0].src).to.equal(videoSub);
+    expect(textTracks[0].label).to.equal('Indonesia');
   });
 });

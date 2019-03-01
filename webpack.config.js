@@ -1,5 +1,6 @@
 const path = require("path");
 const isProd = process.env.NODE_ENV === 'production';
+const isBuild = process.env.NODE_ENV === 'build';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -10,9 +11,9 @@ module.exports = {
   output: {
     filename: 'app.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: isProd ? '/dist/' : '/'
+    publicPath: (isProd || isBuild) ? '/dist/' : '/'
   },
-  devtool: "inline-source-map",
+  devtool: isProd ? 'source-map' : 'inline-source-map',
   resolve: {
     extensions: ['.js', '.ts', '.json']
   },
@@ -51,6 +52,14 @@ module.exports = {
             attrs: [':data-src']
           }
         }
+      },
+      {
+        test: /videojs.ima.js$/,
+        use: [
+          {
+            loader: path.resolve(__dirname, 'src/custom_modules/ima-loader/index.js')
+          }
+        ]
       }
     ],
   },
